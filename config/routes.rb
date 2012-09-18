@@ -1,4 +1,6 @@
 MasqApp::Application.routes.draw do
+  devise_for :accounts
+
   get "info/index"
 
   # The priority is based upon order of creation:

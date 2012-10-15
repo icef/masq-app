@@ -1,5 +1,7 @@
 MasqApp::Application.routes.draw do
-  devise_for :accounts
+  devise_for :accounts, :path_names => { :sign_in => 'login' }
+
+  mount Masq::Engine => "/masq"
 
   get "info/index"
 

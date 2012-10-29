@@ -1,9 +1,7 @@
 MasqApp::Application.routes.draw do
-  devise_for :accounts, :path_names => { :sign_in => 'login' }
+  devise_for :accounts, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
 
-  mount Masq::Engine => "/masq"
-
-  get "info/index"
+  mount Masq::Engine => "/masq", :as => "masq"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +52,7 @@ MasqApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'info#index'
+  root :to => 'masq/info#index'
 
   # See how all your routes lay out with "rake routes"
 
